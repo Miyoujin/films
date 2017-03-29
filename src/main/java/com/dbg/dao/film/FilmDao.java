@@ -10,7 +10,7 @@ import com.dbg.model.film.Film;
 
 @Repository
 public interface FilmDao extends PagingAndSortingRepository<Film,Integer>{
-	public List<Film> findByYearGreaterThanEquals(Integer year);
+	public List<Film> findByYearGreaterThanEqual(Integer year);
 	
 	public List<Film> findByTitleContaining(String title);
 	
