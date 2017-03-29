@@ -1,4 +1,4 @@
-package model.user;
+package com.dbg.model.user;
 
 import java.io.Serializable;
 
