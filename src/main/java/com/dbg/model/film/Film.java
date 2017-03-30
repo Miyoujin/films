@@ -5,7 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.dbg.model.category.Category;
 
 @Entity
 @Table(name="film")
@@ -19,6 +22,8 @@ public class Film implements Serializable{
 	
 	private String title;
 	
+	@OneToOne
+	private Category category;
 	
 	private Integer year;
 
