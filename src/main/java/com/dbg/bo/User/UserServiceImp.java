@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dbg.dao.user.UserDao;
 import com.dbg.dto.UserDTO;
 import com.dbg.model.user.User;
 
+@Service
 public class UserServiceImp implements UserService {
 
 	//private static final Logger log = LoggerFactory.getLogger(UserService.class);
