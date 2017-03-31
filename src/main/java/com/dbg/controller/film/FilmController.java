@@ -1,4 +1,4 @@
-package com.dbg.controller.user;
+package com.dbg.controller.film;
 
 import java.util.List;
 
@@ -9,40 +9,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dbg.bo.User.UserService;
-import com.dbg.dto.UserDTO;
+import com.dbg.bo.film.FilmService;
+import com.dbg.dto.FilmDTO;
 
 @RestController
-@RequestMapping(value="/user")
-public class UserController {
+@RequestMapping(value="/film")
+public class FilmController {
 
 	@Autowired
-	private UserService service;
+	private FilmService service;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public List<UserDTO> findAll(){
+	public List<FilmDTO> findAll(){
 		return service.findAll();
 	}
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.GET)
-	public UserDTO findById(@PathVariable("id") Integer id){
-		return service.findUserById(id);
+	public FilmDTO findById(@PathVariable("id") Integer id){
+		return service.findFilmById(id);
 	}
-	
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public UserDTO create(@RequestBody UserDTO u){
-		return service.create(u);
+	public FilmDTO create(@RequestBody FilmDTO f){
+		return service.create(f);
 	}
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
-	public UserDTO update(@PathVariable("id") Integer id,@RequestBody UserDTO u){
-		return service.update(id,u);
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public FilmDTO create(@PathVariable("id") Integer id, @RequestBody FilmDTO f){
+		return service.update(id, f);
 	}
+	
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
 	public void delete(@PathVariable("id") Integer id){
 		service.delete(id);
 	}
-	
 }
