@@ -12,6 +12,16 @@ public class EvaluationDTO implements Serializable{
 	
 	private String title;
 
+	public EvaluationDTO() {
+		super();
+	}
+	
+	public EvaluationDTO(Integer points, String name, String title) {
+		super();
+		this.points=points;
+		this.name=name;
+		this.title=title;
+	}
 	public Integer getPoints() {
 		return points;
 	}

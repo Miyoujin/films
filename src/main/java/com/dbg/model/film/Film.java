@@ -34,6 +34,18 @@ public class Film implements Serializable{
 	
 	private Integer year;
 
+	public Film() {
+		super();
+	}
+	
+	public Film(Integer id,String title, Integer year,Category category) {
+		super();
+		this.id=id;
+		this.title=title;
+		this.year=year;
+		this.category=category;
+	}
+	
 	public String getTitle() {
 		return title;
 	}

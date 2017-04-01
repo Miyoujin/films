@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbg.bo.film.FilmService;
@@ -22,6 +23,11 @@ public class FilmController {
 	@RequestMapping(method=RequestMethod.GET)
 	public List<FilmDTO> findAll(){
 		return service.findAll();
+	}
+	
+	@RequestMapping(value="/cat", method= RequestMethod.GET)
+	public List<FilmDTO> findByCatId(@RequestParam(value = "catId", required = false)Integer catId,@RequestParam(value = "id", required = false) Integer id){
+		return service.findByCategory_id(catId,id);
 	}
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.GET)
