@@ -27,7 +27,7 @@ public class FilmController {
 	
 	@RequestMapping(value="/cat", method= RequestMethod.GET)
 	public List<FilmDTO> findByCatId(@RequestParam(value = "catId", required = false)Integer catId,@RequestParam(value = "id", required = false) Integer id){
-		return service.findByCategory_id(catId,id);
+		return service.findByCategory_idAndFilm_id(catId,id);
 	}
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.GET)

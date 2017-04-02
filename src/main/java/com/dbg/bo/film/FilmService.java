@@ -14,7 +14,7 @@ public interface FilmService {
 	
 	public List<FilmDTO> findAll();
 	
-	public List<FilmDTO> findByCategory_id(Integer catId, Integer id);
+	public List<FilmDTO> findByCategory_idAndFilm_id(Integer catId, Integer id);
 	
 	public FilmDTO findFilmById(Integer id);
 	

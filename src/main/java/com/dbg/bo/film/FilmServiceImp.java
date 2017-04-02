@@ -60,7 +60,7 @@ public class FilmServiceImp implements FilmService{
 	}
 
 	@Override
-	public List<FilmDTO> findByCategory_id(Integer catId,Integer id) {
+	public List<FilmDTO> findByCategory_idAndFilm_id(Integer catId,Integer id) {
 		List<FilmDTO> allF=new ArrayList<FilmDTO>();
 			filmDao.findByCategory_idAndId(catId,id).forEach(f -> allF.add(transform(f)));
 		return allF;

@@ -12,13 +12,13 @@ import com.dbg.bo.evaluation.EvaluationService;
 import com.dbg.dto.EvaluationDTO;
 
 @RestController
-@RequestMapping(value="/eval")
+@RequestMapping(value="/evaluation")
 public class EvaluationController {
 	
 	@Autowired
 	private EvaluationService service;
 	
-	@RequestMapping(value="/cat", method= RequestMethod.GET)
+	@RequestMapping(method= RequestMethod.GET)
 	public List<EvaluationDTO> findByCatId(@RequestParam(value = "idCategory", required = false)Integer idCategory,@RequestParam(value = "idUser", required = false)Integer idUser,@RequestParam(value = "idFilm", required = false) Integer idFilm){
 		return service.findAll(idCategory, idUser, idFilm);
 	}

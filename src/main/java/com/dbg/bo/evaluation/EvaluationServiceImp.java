@@ -19,10 +19,7 @@ public class EvaluationServiceImp implements EvaluationService{
 	private EvaluationDao evalDao;
 	@Override
 	public List<EvaluationDTO> findAll(final Integer idCategory,final Integer idUser,final Integer idFilm) {
-		//User user=userDao.findOne(idUser);
-		//Film film=filmDao.findOne(idFilm);
 		List<EvaluationDTO> allE= new ArrayList<EvaluationDTO>();
-		//filmDao.findByCategory_idAndId(idCategory, idFilm).forEach(f ->evalDao.findByUserAndFilm(idUser,f.getId() ))
 		evalDao.findByUserAndFilmAndCat(idUser, idFilm, idCategory).forEach(e -> allE.add(transform(e,e.getUser(),e.getFilm())));
 		return allE;
 	}
@@ -41,7 +38,7 @@ public class EvaluationServiceImp implements EvaluationService{
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		evalDao.delete(id);
 		
 	}
 
