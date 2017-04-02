@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dbg.dao.evaluation.EvaluationDao;
-import com.dbg.dao.film.FilmDao;
-import com.dbg.dao.user.UserDao;
 import com.dbg.dto.EvaluationDTO;
 import com.dbg.model.evaluation.Evaluation;
 import com.dbg.model.film.Film;
@@ -19,18 +17,14 @@ public class EvaluationServiceImp implements EvaluationService{
 
 	@Autowired
 	private EvaluationDao evalDao;
-	@Autowired
-	private UserDao userDao;
-	@Autowired
-	private FilmDao filmDao;
-	
 	@Override
 	public List<EvaluationDTO> findAll(final Integer idCategory,final Integer idUser,final Integer idFilm) {
-		User user=userDao.findOne(idUser);
-		Film film=filmDao.findOne(idFilm);
-		
-		
-		return null;
+		//User user=userDao.findOne(idUser);
+		//Film film=filmDao.findOne(idFilm);
+		List<EvaluationDTO> allE= new ArrayList<EvaluationDTO>();
+		//filmDao.findByCategory_idAndId(idCategory, idFilm).forEach(f ->evalDao.findByUserAndFilm(idUser,f.getId() ))
+		evalDao.findByUserAndFilmAndCat(idUser, idFilm, idCategory).forEach(e -> allE.add(transform(e,e.getUser(),e.getFilm())));
+		return allE;
 	}
 
 	@Override

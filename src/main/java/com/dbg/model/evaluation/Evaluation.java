@@ -32,6 +32,34 @@ public class Evaluation implements Serializable{
 	@OneToOne
 	private User user;
 	
+	public Film getFilm() {
+		return film;
+	}
+
+	public void setFilm(Film film) {
+		this.film = film;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Evaluation() {
+		super();
+	}
+	
+	public Evaluation(Integer id, Integer points,Film film,User user) {
+		super();
+		this.id=id;
+		this.points=points;
+		this.film=film;
+		this.user=user;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

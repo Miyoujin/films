@@ -19,5 +19,4 @@ public interface FilmDao extends PagingAndSortingRepository<Film,Integer>{
 	
 	@Query(value = "select new com.dbg.model.film.Film(f.id, f.title, f.year,f.category) from Film as f where (:catId is null OR f.category.id = :catId) AND (:id is null OR f.id = :id)")
 	public List<Film> findByCategory_idAndId(@Param(value = "catId")Integer catId,@Param(value = "id")Integer id);
-	//public List<Film> findByCategory_idAndIdIn(Integer catId,Integer id);
 }
