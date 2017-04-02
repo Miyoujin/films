@@ -3,6 +3,7 @@ package com.dbg.bo.User;
 import java.util.List;
 
 import com.dbg.dto.UserDTO;
+import com.dbg.exceptions.UserNotFoundException;
 import com.dbg.model.user.User;
 
 public interface UserService {
@@ -13,7 +14,7 @@ public interface UserService {
 	
 	public List<UserDTO> findAll();
 	
-	public UserDTO findUserById(Integer id);
+	public UserDTO findUserById(Integer id) throws UserNotFoundException;
 	
 	public UserDTO create(UserDTO u);
 	

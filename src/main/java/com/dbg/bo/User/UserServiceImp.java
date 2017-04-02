@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dbg.dao.user.UserDao;
 import com.dbg.dto.UserDTO;
+import com.dbg.exceptions.UserNotFoundException;
 import com.dbg.model.user.User;
 
 @Service
@@ -38,9 +39,12 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public UserDTO findUserById(Integer id) {
+	public UserDTO findUserById(Integer id) throws UserNotFoundException {
 		final User u=userDao.findOne(id);
-		return transform((u!=null)? u : new User());
+		if(u !=null)
+			return transform(u);
+		else
+			throw new UserNotFoundException();
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dbg.bo.User.UserService;
 import com.dbg.dto.UserDTO;
+import com.dbg.exceptions.UserNotFoundException;
 
 @RestController
 @RequestMapping(value="/user")
@@ -25,7 +26,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.GET)
-	public UserDTO findById(@PathVariable("id") Integer id){
+	public UserDTO findById(@PathVariable("id") Integer id) throws UserNotFoundException{
 		return service.findUserById(id);
 	}
 	
